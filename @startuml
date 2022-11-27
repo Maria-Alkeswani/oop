@@ -1,0 +1,58 @@
+@startuml 
+
+user : - card_name : string
+user : - password : integer
+user : + insert_card()
+user : + insert_password()
+
+amount : - amount : integer
+amount : + insert_amount()
+
+transfer : - accoutnt_number : integer
+transfer : + transfer_amount()
+
+withdrawal : + withdrawal_amount()
+deposit : + deposit_amount()
+
+balance_chech : - information : string
+balance_chech : + print_informaton()
+
+balance_chech --|> user
+amount --|> user
+transfer--|> amount 
+deposit --|> amount
+withdrawal--|> amount
+
+
+
+Bank o-- ATM
+
+ATM o-- keyboard
+ATM o-- card_reader
+ATM o-- cash_tray
+ATM o-- display
+
+Bank : - name : string
+
+Bank : + update_account()
+Bank : + transaction_detalis()
+
+
+deposit --> ATM
+balance_chech --> ATM
+transfer --> ATM
+withdrawal --> ATM
+
+ATM : - card_reader : string
+
+ATM : + check_card()
+ATM : + balance_check()
+ATM : + transfer()
+ATM : + withdrawal()
+ATM : + deposit()
+ATM : + register_transation()
+
+
+
+
+@enduml
